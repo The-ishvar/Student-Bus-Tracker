@@ -31,10 +31,10 @@ export async function registerRoutes(
         admin = await storage.createUser({ username: "admin", password: "password", role: "admin" });
       }
 
-      // Ensure a demo student exists
-      let student = await storage.getUserByUsername("student");
-      if (!student) {
-        student = await storage.createUser({ username: "student", password: "password", role: "student" });
+      // Ensure a demo citizen exists
+      let citizen = await storage.getUserByUsername("citizen");
+      if (!citizen) {
+        citizen = await storage.createUser({ username: "citizen", password: "password", role: "citizen" });
       }
 
       const existingBuses = await storage.getBuses();
@@ -77,9 +77,9 @@ export async function registerRoutes(
       const input = api.auth.login.input.parse(req.body);
       let user = await storage.getUserByUsername(input.username);
       
-      // If user doesn't exist (since it's a demo), create them as a student dynamically
+      // If user doesn't exist (since it's a demo), create them as a citizen dynamically
       if (!user) {
-        user = await storage.createUser({ username: input.username, password: input.password, role: "student" });
+        user = await storage.createUser({ username: input.username, password: input.password, role: "citizen" });
       } else if (user.password !== input.password) {
         return res.status(401).json({ message: "Invalid password / गलत पासवर्ड" });
       }
