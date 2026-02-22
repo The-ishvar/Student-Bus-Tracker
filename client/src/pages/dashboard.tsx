@@ -23,7 +23,16 @@ export default function Dashboard() {
   const [seatNumber, setSeatNumber] = useState("");
 
   const handleBook = async () => {
-    if (!selectedBus || !seatNumber || !user) return;
+    if (!selectedBus || !seatNumber) return;
+
+    if (!user) {
+      toast({ 
+        title: "Login Required / लॉगिन आवश्यक है", 
+        description: "Please login to book a seat. / सीट बुक करने के लिए कृपया लॉगिन करें।",
+        variant: "destructive"
+      });
+      return;
+    }
     
     try {
       await createBooking({
@@ -62,7 +71,7 @@ export default function Dashboard() {
             <BusCard 
               key={bus.id} 
               bus={bus} 
-              onBook={user?.role === 'student' ? setSelectedBus : undefined} 
+              onBook={user?.role !== 'admin' ? setSelectedBus : undefined} 
             />
           ))}
         </div>

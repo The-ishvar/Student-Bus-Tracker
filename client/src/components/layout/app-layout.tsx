@@ -91,25 +91,36 @@ export function AppLayout({ children }: { children: ReactNode }) {
             </SidebarGroup>
 
             <div className="mt-auto p-4">
-              <div className="bg-primary/5 rounded-2xl p-4 border border-primary/10">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
-                    <User size={20} />
+              {user ? (
+                <div className="bg-primary/5 rounded-2xl p-4 border border-primary/10">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+                      <User size={20} />
+                    </div>
+                    <div>
+                      <p className="text-sm font-bold text-foreground capitalize">{user.username}</p>
+                      <p className="text-xs text-muted-foreground capitalize">{user.role}</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-sm font-bold text-foreground capitalize">{user?.username}</p>
-                    <p className="text-xs text-muted-foreground capitalize">{user?.role}</p>
-                  </div>
+                  <Button 
+                    variant="destructive" 
+                    className="w-full rounded-xl hover-elevate shadow-md shadow-destructive/20" 
+                    onClick={() => logout()}
+                  >
+                    <LogOut className="w-4 h-4 mr-2" />
+                    Logout / लॉग आउट
+                  </Button>
                 </div>
-                <Button 
-                  variant="destructive" 
-                  className="w-full rounded-xl hover-elevate shadow-md shadow-destructive/20" 
-                  onClick={() => logout()}
-                >
-                  <LogOut className="w-4 h-4 mr-2" />
-                  Logout / लॉग आउट
-                </Button>
-              </div>
+              ) : (
+                <div className="bg-primary/5 rounded-2xl p-4 border border-primary/10">
+                  <p className="text-sm text-muted-foreground mb-4 text-center">Login to book seats & more</p>
+                  <Link href="/login">
+                    <Button className="w-full rounded-xl hover-elevate shadow-md shadow-primary/20">
+                      Login / लॉगिन
+                    </Button>
+                  </Link>
+                </div>
+              )}
             </div>
           </SidebarContent>
         </Sidebar>

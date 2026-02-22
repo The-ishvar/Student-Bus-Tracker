@@ -38,13 +38,11 @@ function ProtectedRoute({ component: Component, adminOnly = false }: { component
 function Router() {
   return (
     <Switch>
+      {/* Public Routes */}
+      <Route path="/" component={Dashboard} />
       <Route path="/login" component={AuthPage} />
       
       {/* Protected Routes */}
-      <Route path="/">
-        {() => <ProtectedRoute component={Dashboard} />}
-      </Route>
-      
       <Route path="/my-bookings">
         {() => <ProtectedRoute component={StudentBookings} />}
       </Route>
