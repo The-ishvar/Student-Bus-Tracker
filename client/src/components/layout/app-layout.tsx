@@ -26,12 +26,10 @@ export function AppLayout({ children }: { children: ReactNode }) {
     { title: "Manage Buses / बसें प्रबंधित करें", url: "/admin/buses", icon: Bus },
     { title: "All Bookings / सभी बुकिंग", url: "/admin/bookings", icon: Ticket },
     { title: "Student Chat / चैट", url: "/chat", icon: MessageSquare },
-    { title: "Live Classes / लाइव क्लास", url: "/videos", icon: Video },
   ] : [
     { title: "Find Buses / बसें खोजें", url: "/", icon: Bus },
     { title: "My Bookings / मेरी बुकिंग", url: "/my-bookings", icon: Ticket },
     { title: "Chat with Admin / एडमिन से चैट", url: "/chat", icon: MessageSquare },
-    { title: "Live Classes / लाइव क्लास", url: "/videos", icon: Video },
   ];
 
   const handleVoiceSearch = () => {
@@ -62,7 +60,7 @@ export function AppLayout({ children }: { children: ReactNode }) {
               </div>
               <div>
                 <h2 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/80">Yatra<span className="text-foreground">Sathi</span></h2>
-                <p className="text-xs text-muted-foreground font-medium">Rural Transit & Learn</p>
+                <p className="text-xs text-muted-foreground font-medium">Rural Transit</p>
               </div>
             </div>
             

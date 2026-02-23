@@ -11,9 +11,8 @@ import AuthPage from "./pages/auth-page";
 import Dashboard from "./pages/dashboard";
 import AdminBuses from "./pages/admin-buses";
 import AdminBookings from "./pages/admin-bookings";
-import StudentBookings from "./pages/student-bookings";
+import CitizenBookings from "./pages/citizen-bookings";
 import ChatPage from "./pages/chat";
-import VideosPage from "./pages/videos";
 
 function ProtectedRoute({ component: Component, adminOnly = false }: { component: any, adminOnly?: boolean }) {
   const { user, isLoading } = useAuth();
@@ -44,15 +43,11 @@ function Router() {
       
       {/* Protected Routes */}
       <Route path="/my-bookings">
-        {() => <ProtectedRoute component={StudentBookings} />}
+        {() => <ProtectedRoute component={CitizenBookings} />}
       </Route>
 
       <Route path="/chat">
         {() => <ProtectedRoute component={ChatPage} />}
-      </Route>
-
-      <Route path="/videos">
-        {() => <ProtectedRoute component={VideosPage} />}
       </Route>
 
       {/* Admin Only Routes */}
