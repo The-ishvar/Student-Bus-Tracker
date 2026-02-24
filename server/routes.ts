@@ -65,17 +65,24 @@ import type { Express } from "express";
         let user = await storage.getUserByUsername(input.username);
         
         if (!user) {
+          // If user doesn't exist, create them as a citizen
           user = await storage.createUser({ username: input.username, password: input.password, role: "citizen" });
         } else if (user.password !== input.password) {
           return res.status(401).json({ message: "Invalid password / गलत पासवर्ड" });
         }
         
+        if (!user) {
+          return res.status(500).json({ message: "Internal server error: user undefined" });
+        }
+
         // @ts-ignore
         req.session.userId = user.id;
         res.status(200).json(user);
       } catch (err) {
         if (err instanceof z.ZodError) {
           res.status(400).json({ message: err.errors[0].message, field: err.errors[0].path.join('.') });
+        } else {
+          res.status(500).json({ message: "An unexpected error occurred" });
         }
       }
     });

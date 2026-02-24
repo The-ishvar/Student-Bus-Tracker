@@ -34,7 +34,7 @@ export default function AuthPage() {
     }
   };
 
-  const fillDemo = (role: 'student' | 'admin') => {
+  const fillDemo = (role: 'citizen' | 'admin') => {
     setUsername(role);
     setPassword("password");
   };
@@ -61,7 +61,7 @@ export default function AuthPage() {
             Smart Transit<br/>for Rural India.
           </h1>
           <p className="text-lg md:text-xl text-primary-foreground/80 max-w-md font-medium">
-            गाँव और छोटे शहर के स्टूडेंट और लोगों को बस की सही जानकारी और सीट booking में मदद।
+            गाँव और छोटे शहर के नागरिकों और यूज़र्स को बस की सही जानकारी और सीट booking में मदद।
           </p>
           
           <div className="mt-12 space-y-4">
@@ -138,11 +138,11 @@ export default function AuthPage() {
               <Button 
                 variant="outline" 
                 className="h-14 rounded-xl flex flex-col gap-1 hover:border-primary/50 hover:bg-primary/5"
-                onClick={() => fillDemo('student')}
+                onClick={() => fillDemo('citizen')}
                 type="button"
               >
-                <div className="flex items-center gap-2"><UserCircle className="w-4 h-4"/> Student</div>
-                <span className="text-[10px] text-muted-foreground font-normal">student / password</span>
+                <div className="flex items-center gap-2"><UserCircle className="w-4 h-4"/> Citizen / User</div>
+                <span className="text-[10px] text-muted-foreground font-normal">citizen / password</span>
               </Button>
               <Button 
                 variant="outline" 
