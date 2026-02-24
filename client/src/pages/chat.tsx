@@ -39,10 +39,10 @@ export default function ChatPage() {
       <div className="h-[calc(100vh-12rem)] flex flex-col bg-card rounded-2xl shadow-sm border border-border/50 overflow-hidden">
         <div className="p-4 border-b border-border/50 bg-muted/30">
           <h2 className="text-xl font-bold font-display">
-            {user?.role === 'admin' ? 'Student Queries / छात्रों के प्रश्न' : 'Help & Support / सहायता'}
+            {user?.role === 'admin' ? 'Citizen Queries / नागरिकों के प्रश्न' : 'Help & Support / सहायता'}
           </h2>
           <p className="text-sm text-muted-foreground">
-            {user?.role === 'admin' ? 'Answer student questions below.' : 'Ask the admin any questions you have.'}
+            {user?.role === 'admin' ? 'Answer citizen questions below.' : 'Ask the admin any questions you have.'}
           </p>
         </div>
 

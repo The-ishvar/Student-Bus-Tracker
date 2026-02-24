@@ -3,7 +3,7 @@ import { useMyBookings } from "@/hooks/use-bookings";
 import { format } from "date-fns";
 import { Ticket, MapPin, Clock, CheckCircle2 } from "lucide-react";
 
-export default function StudentBookings() {
+export default function CitizenBookings() {
   const { data: bookings, isLoading } = useMyBookings();
 
   return (

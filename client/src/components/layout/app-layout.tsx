@@ -25,7 +25,7 @@ export function AppLayout({ children }: { children: ReactNode }) {
     { title: "Dashboard / डैशबोर्ड", url: "/", icon: Settings },
     { title: "Manage Buses / बसें प्रबंधित करें", url: "/admin/buses", icon: Bus },
     { title: "All Bookings / सभी बुकिंग", url: "/admin/bookings", icon: Ticket },
-    { title: "Student Chat / चैट", url: "/chat", icon: MessageSquare },
+    { title: "Citizen Chat / चैट", url: "/chat", icon: MessageSquare },
   ] : [
     { title: "Find Buses / बसें खोजें", url: "/", icon: Bus },
     { title: "My Bookings / मेरी बुकिंग", url: "/my-bookings", icon: Ticket },
