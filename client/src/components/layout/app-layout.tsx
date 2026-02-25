@@ -140,7 +140,7 @@ export function AppLayout({ children }: { children: ReactNode }) {
                 onClick={handleVoiceSearch}
               >
                 <Mic className={`w-4 h-4 mr-2 ${isListening ? 'animate-bounce' : ''}`} />
-                <span className="hidden sm:inline">Voice Search / वॉयस सर्च</span>
+                <span className="hidden sm:inline">me ishvar suthar class 11 bhaleri </span>
                 <span className="sm:hidden">Voice</span>
               </Button>
             </div>
